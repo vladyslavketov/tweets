@@ -1,0 +1,101 @@
+.userCard {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 380px;
+  height: 460px;
+  padding: 20px 20px 36px;
+
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: #EBD8FF;
+
+  background: linear-gradient(114.99deg, #471CA9 -0.99%, #5736A3 54.28%, #4B2A99 78.99%);
+  box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
+  border-radius: 20px;
+}
+
+.logo {
+  margin: 0 auto auto 0;
+}
+
+.quoteImg {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+
+  transform: translateX(-50%)
+}
+
+.avatarBox {
+  position: absolute;
+  top: 178px;
+  left: 50%;
+  
+  width: 100%;
+  height: 80px;
+
+  transform: translateX(-50%);
+}
+
+.avatarBox::before {
+  content: '';
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  width: 380px;
+  height: 8px;
+
+  background-color: #EBD8FF;
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06), inset 0px -1.71846px 3.43693px #AE7BE3, inset 0px 3.43693px 2.5777px #FBF8FF;
+  transform: translateY(-50%);
+}
+
+.avatarWrap,
+.avatarWrap::before,
+.avatar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.avatarWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+
+  background-color: #EBD8FF;
+  box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06), inset 0px -2.19582px 4.39163px #AE7BE3, inset 0px 4.39163px 3.29372px #FBF8FF;
+}
+
+.avatarWrap::before,
+.avatar {  
+  width: 62px;
+  height: 62px;
+}
+
+.avatarWrap::before {
+  content: '';
+
+  background-color: #5736A3;
+}
+
+.tweets {
+  margin-bottom: 16px;
+}
+
+.followers {
+  margin-bottom: 26px;
+}
