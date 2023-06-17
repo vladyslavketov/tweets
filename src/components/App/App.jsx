@@ -1,16 +1,18 @@
-
 import { Navigate, Route, Routes } from 'react-router-dom';
-// import Home from '../../pages/Home';
+
+import SharedLayout from '../SharedLayout/SharedLayout';
+import Home from '../../pages/Home/Home';
 import Tweets from '../../pages/Tweets/Tweets';
 import './App.css';
 
 const App = () => {
   return (
     <Routes>
-      <Route path='/' element={<Tweets />} />
-      {/* <Route path="/" element={<Home />} /> */}
-      {/* <Route path="/tweets" element={<Tweets />} /> */}
-      <Route path='*' element={<Navigate to='/' />} />
+      <Route path='/' element={<SharedLayout />} >
+        <Route index element={<Home />} />
+        <Route path="/tweets" element={<Tweets />} />
+        <Route path='*' element={<Navigate to='/' />} />
+      </Route>
     </Routes>
   );
 };

@@ -1,32 +1,61 @@
 import { useEffect, useState } from 'react';
 
-import UserList from '../../components/UserList/UserList';
-import { fetchUsers } from '../../services/api';
+import { fetchAllUsers, fetchUsers } from '../../services/api';
 import forUseLocalStorage from '../../utils/useLocalStorage';
+import UserList from '../../components/UserList/UserList';
+import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn';
 
 const Tweets = () => {
-  const lsUsers = forUseLocalStorage('users');
   const [isFirstRender, setIsFirstRender] = useState(true);
-  const [users, setUsers] = useState(lsUsers);
+  const [users, setUsers] = useState([]);
+  const [usersLS, setUsersLS] = useState([]);
+  const [totalPages, setTotalPages] = useState(null);
+  const [page, setPage] = useState(1);
+  const [disabledLoadMoreBtn, setDisabledLoadMoreBtn] = useState(false);
+
+  const onLoadMoreBtnClick = () => {
+    setPage(prevState => prevState + 1);
+  };
 
   useEffect(() => {
     if (isFirstRender) {
       setIsFirstRender(false);
+      setUsersLS(forUseLocalStorage('users'));
       return;
     }
 
-    if (!lsUsers) {
-      fetchUsers().then(res => {
-        forUseLocalStorage('users', 'set', res);
-        setUsers(res);
+    if (!totalPages) {
+      fetchAllUsers().then(res => {
+        setTotalPages(res.length / 3);
+
+        if (Boolean(forUseLocalStorage('users'))) return;
+
+        const newRes = res.map(item => ({ ...item, isFollowing: false }));
+        forUseLocalStorage('users', 'set', newRes);
       });
+      return;
     }
-  }, [isFirstRender, lsUsers]);
+
+    fetchUsers(page).then(res => {
+      const afterCheck = usersLS.filter(({ id }) => res.some(x => x.id === id));
+      setUsers(prevState => [...prevState, ...afterCheck]);
+    });
+
+    if (page === totalPages) setDisabledLoadMoreBtn(true);
+  }, [isFirstRender, totalPages, page, usersLS]);
 
   return (
-    <section className="section">
+    <section className="section tweets">
       <div className="container">
-        {users && <UserList users={users} />}
+        {users && (
+          <div className="tweets__wrap">
+            <UserList users={users} />
+            <LoadMoreBtn
+              onClick={onLoadMoreBtnClick}
+              disabled={disabledLoadMoreBtn}
+            />
+          </div>
+        )}
       </div>
     </section>
   );

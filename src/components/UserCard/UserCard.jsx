@@ -4,18 +4,23 @@ import css from './UserCard.module.css';
 import forUseLocalStorage from '../../utils/useLocalStorage';
 
 const UserCard = ({ user }) => {
-  const { id, tweets, followers, avatar} = user;
-  const [isFollowing, setIsFollowing] = useState(user.isFollowing);
+  const { id, tweets, followers, avatar } = user;
+  const [isFollowing, setIsFollowing] = useState(user.isFollowing || false);
   const [countedFollowers, setCountedFollowers] = useState(followers);
 
   const updateIsFollowingInLs = () => {
     const usersLS = forUseLocalStorage('users');
+
+    if (!Boolean(usersLS)) return;
     const indexCurrentUser = usersLS.findIndex(item => item.id === id);
-    const updatedCurrentUser = usersLS[indexCurrentUser] = {...user, isFollowing};
+    const updatedCurrentUser = (usersLS[indexCurrentUser] = {
+      ...user,
+      isFollowing,
+    });
 
     usersLS.splice(indexCurrentUser, 1, updatedCurrentUser);
     forUseLocalStorage('users', 'set', usersLS);
-  }
+  };
 
   useEffect(() => {
     if (!isFollowing) {
@@ -61,7 +66,7 @@ const UserCard = ({ user }) => {
       <p className={css.followers}>
         <span>{countedFollowers.toLocaleString('en-US')}</span> Followers
       </p>
-      <FollowBtn isFollowing={isFollowing} setIsFollowing={setIsFollowing}/>
+      <FollowBtn isFollowing={isFollowing} setIsFollowing={setIsFollowing} />
     </div>
   );
 };

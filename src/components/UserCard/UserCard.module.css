@@ -13,9 +13,14 @@
   font-size: 20px;
   line-height: 24px;
   text-transform: uppercase;
-  color: #EBD8FF;
+  color: #ebd8ff;
 
-  background: linear-gradient(114.99deg, #471CA9 -0.99%, #5736A3 54.28%, #4B2A99 78.99%);
+  background: linear-gradient(
+    114.99deg,
+    #471ca9 -0.99%,
+    #5736a3 54.28%,
+    #4b2a99 78.99%
+  );
   box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
   border-radius: 20px;
 }
@@ -29,14 +34,14 @@
   top: 28px;
   left: 50%;
 
-  transform: translateX(-50%)
+  transform: translateX(-50%);
 }
 
 .avatarBox {
   position: absolute;
   top: 178px;
   left: 50%;
-  
+
   width: 100%;
   height: 80px;
 
@@ -53,8 +58,9 @@
   width: 380px;
   height: 8px;
 
-  background-color: #EBD8FF;
-  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06), inset 0px -1.71846px 3.43693px #AE7BE3, inset 0px 3.43693px 2.5777px #FBF8FF;
+  background-color: #ebd8ff;
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
+    inset 0px -1.71846px 3.43693px #ae7be3, inset 0px 3.43693px 2.5777px #fbf8ff;
   transform: translateY(-50%);
 }
 
@@ -76,20 +82,27 @@
   width: 80px;
   height: 80px;
 
-  background-color: #EBD8FF;
-  box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06), inset 0px -2.19582px 4.39163px #AE7BE3, inset 0px 4.39163px 3.29372px #FBF8FF;
+  background-color: #ebd8ff;
+  box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06),
+    inset 0px -2.19582px 4.39163px #ae7be3,
+    inset 0px 4.39163px 3.29372px #fbf8ff;
 }
 
-.avatarWrap::before,
-.avatar {  
+.avatar {
   width: 62px;
   height: 62px;
+
+  font-size: 12px;
+  text-align: center;
 }
 
 .avatarWrap::before {
   content: '';
 
-  background-color: #5736A3;
+  width: 60px;
+  height: 60px;
+
+  background-color: #5736a3;
 }
 
 .tweets {

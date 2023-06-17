@@ -14,6 +14,8 @@ body {
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: #EBD8FF;
 }
 
 .section {
@@ -23,6 +25,15 @@ body {
 .container {
   display: flex;
   justify-content: center;
+
   margin: 0 auto;
   padding: 0 32px;
+}
+
+/* TODO - replace this css in other file */
+.tweets__wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
 }

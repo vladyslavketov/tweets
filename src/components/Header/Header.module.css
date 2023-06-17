@@ -1,15 +1,33 @@
-.followBtn {
+.header {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 196px;
-  height: 50px;
+  height: 60px;
+
+  background-color: #373737;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  list-style: none;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 40px;
 
   font-family: 'Montserrat';
   font-weight: 600;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 16px;
+  line-height: 20px;
   text-transform: uppercase;
+  text-decoration: none;
   color: #373737;
 
   border: 0;
@@ -21,22 +39,9 @@
   cursor: pointer;
 }
 
-.followBtn:focus,
-.followBtn:hover {
+.navLink:focus,
+.navLink:hover {
   color: #ebd8ff;
 
   background-color: #373737;
-  outline: none;
-}
-
-button[data-isfollowing='true'] {
-  background-color: #5cd3a8;
-}
-
-button[data-isfollowing='true']:focus,
-button[data-isfollowing='true']:hover {
-  color: #5cd3a7cd;
-
-  background-color: #373737;
-  outline: none;
 }
