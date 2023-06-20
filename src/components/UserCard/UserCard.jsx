@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import FollowBtn from '../FollowBtn/FollowBtn';
 import css from './UserCard.module.css';
 import forUseLocalStorage from '../../utils/useLocalStorage';
@@ -8,19 +8,19 @@ const UserCard = ({ user }) => {
   const [isFollowing, setIsFollowing] = useState(user.isFollowing || false);
   const [countedFollowers, setCountedFollowers] = useState(followers);
 
-  const updateIsFollowingInLs = () => {
-    const usersLS = forUseLocalStorage('users');
+  const updateIsFollowingInLs = useCallback(() => {
+    const usersFromLS = forUseLocalStorage('users');
 
-    if (!Boolean(usersLS)) return;
-    const indexCurrentUser = usersLS.findIndex(item => item.id === id);
-    const updatedCurrentUser = (usersLS[indexCurrentUser] = {
+    if (!Boolean(usersFromLS)) return;
+    const indexCurrentUser = usersFromLS.findIndex(item => item.id === id);
+    const updatedCurrentUser = (usersFromLS[indexCurrentUser] = {
       ...user,
       isFollowing,
     });
 
-    usersLS.splice(indexCurrentUser, 1, updatedCurrentUser);
-    forUseLocalStorage('users', 'set', usersLS);
-  };
+    usersFromLS.splice(indexCurrentUser, 1, updatedCurrentUser);
+    forUseLocalStorage('users', 'set', usersFromLS);
+  }, [id, isFollowing, user])
 
   useEffect(() => {
     if (!isFollowing) {
@@ -31,7 +31,10 @@ const UserCard = ({ user }) => {
     setCountedFollowers(followers + 1);
   }, [isFollowing, followers]);
 
-  useEffect(updateIsFollowingInLs, [isFollowing, user, id]);
+  useEffect(() => {
+    updateIsFollowingInLs();
+  }, [isFollowing, updateIsFollowingInLs]);
+
 
   return (
     <div className={css.userCard}>
