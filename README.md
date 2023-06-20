@@ -1,10 +1,10 @@
 <h1 align="center">Tweets (follo app)</h1>
 
-[![Repository Size](https://img.shields.io/github/repo-size/vladyslavketov/test-task-social?style=<style>&color=<color>)](https://github.com/vladyslavketov/test-task-social)
-![GitHub watchers](https://img.shields.io/github/watchers/vladyslavketov/test-task-social?style=social)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/w/vladyslavketov/test-task-social)
-![GitHub language count](https://img.shields.io/github/languages/count/vladyslavketov/test-task-social)
-![GitHub top language](https://img.shields.io/github/languages/top/vladyslavketov/test-task-social)
+[![Repository Size](https://img.shields.io/github/repo-size/vladyslavketov/tweets?style=<style>&color=<color>)](https://github.com/vladyslavketov/tweets)
+![GitHub watchers](https://img.shields.io/github/watchers/vladyslavketov/tweets)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/vladyslavketov/tweets)
+![GitHub language count](https://img.shields.io/github/languages/count/vladyslavketov/tweets)
+![GitHub top language](https://img.shields.io/github/languages/top/vladyslavketov/tweets)
 
 <h2 align="center"><a  href='https://vladyslavketov.github.io/tweets'>Live Demo</a></h2>
 
