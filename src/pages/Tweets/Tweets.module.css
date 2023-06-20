@@ -1,0 +1,12 @@
+.tweets__wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+
+  min-height: 716px;
+}
+
+.userList__wrap {
+  flex-grow: 1;
+}

@@ -1,6 +1,8 @@
 @import-normalize;
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -10,12 +12,22 @@
   border: none;
 }
 
+div#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: #EBD8FF;
+  background-color: #ebd8ff;
+}
+
+main {
+  flex-grow: 1;
 }
 
 .section {
@@ -27,13 +39,11 @@ body {
   justify-content: center;
 
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 16px;
 }
 
-/* TODO - replace this css in other file */
-.tweets__wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 48px;
+@media screen and (min-width: 852px) {
+  .container {
+    padding: 0 32px;
+  }
 }

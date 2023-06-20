@@ -7,6 +7,7 @@ import UserList from '../../components/UserList/UserList';
 import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn';
 import Filter from '../../components/Filter/Filter';
 import { ITEMS_PER_PAGE } from '../../constans';
+import css from './Tweets.module.css';
 
 const Tweets = () => {
   const [isFirstRender, setIsFirstRender] = useState(true);
@@ -41,10 +42,10 @@ const Tweets = () => {
 
     switch (currentFilter) {
       case 'show all':
-        console.log('currentFilter: show all');
-
         setUsersPerPage();
-        setTotalPages(Math.ceil(forUseLocalStorage('users').length / ITEMS_PER_PAGE));
+        setTotalPages(
+          Math.ceil(forUseLocalStorage('users').length / ITEMS_PER_PAGE)
+        );
         break;
 
       case 'follow':
@@ -54,8 +55,6 @@ const Tweets = () => {
         const followUsersPerPage = getCurrentItemsPerPage(followUsers, page);
         setUsers(prevState => [...prevState, ...followUsersPerPage]);
         setTotalPages(Math.ceil(followUsers.length / ITEMS_PER_PAGE));
-
-        console.log('currentFilter: follow | followUsers', followUsers);
         break;
 
       case 'followings':
@@ -68,15 +67,13 @@ const Tweets = () => {
         );
         setUsers(prevState => [...prevState, ...followingsUsersPerPage]);
         setTotalPages(Math.ceil(followingsUsers.length / ITEMS_PER_PAGE));
-
-        console.log(
-          'currentFilter: followingsUsers | followingsUsers',
-          followingsUsers
-        );
         break;
 
       default:
-        console.log('currentFilter default ');
+        const defaultUsers = forUseLocalStorage('users');
+        const defaultUsersPerPage = getCurrentItemsPerPage(defaultUsers, page);
+        setUsers(prevState => [...prevState, ...defaultUsersPerPage]);
+        setTotalPages(Math.ceil(defaultUsers.length / ITEMS_PER_PAGE));
     }
   }, [currentFilter, setUsersPerPage, page]);
 
@@ -108,17 +105,20 @@ const Tweets = () => {
     <section className="section tweets">
       <div className="container">
         {users && (
-          <div className="tweets__wrap">
+          <div className={css.tweets__wrap}>
             <Filter
               currentFilter={currentFilter}
-              setCurrentFilter={setCurrentFilter}
               handleSelectFilter={handleSelectFilter}
             />
-            <UserList users={users} />
-            <LoadMoreBtn
-              onClick={handlePageIncrement}
-              disabled={disabledLoadMoreBtn}
-            />
+            <div className={css.userList__wrap}>
+              <UserList users={users} />
+            </div>
+            {!disabledLoadMoreBtn && (
+              <LoadMoreBtn
+                onClick={handlePageIncrement}
+                disabled={disabledLoadMoreBtn}
+              />
+            )}
           </div>
         )}
       </div>

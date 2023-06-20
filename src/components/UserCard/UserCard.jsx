@@ -20,7 +20,7 @@ const UserCard = ({ user }) => {
 
     usersFromLS.splice(indexCurrentUser, 1, updatedCurrentUser);
     forUseLocalStorage('users', 'set', usersFromLS);
-  }, [id, isFollowing, user])
+  }, [id, isFollowing, user]);
 
   useEffect(() => {
     if (!isFollowing) {
@@ -34,7 +34,6 @@ const UserCard = ({ user }) => {
   useEffect(() => {
     updateIsFollowingInLs();
   }, [isFollowing, updateIsFollowingInLs]);
-
 
   return (
     <div className={css.userCard}>

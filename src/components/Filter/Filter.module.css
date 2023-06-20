@@ -1,6 +1,7 @@
 .filter {
   display: flex;
   align-items: baseline;
+  height: 150px;
   gap: 28px;
 
   font-family: 'Montserrat';
@@ -10,7 +11,17 @@
   text-transform: uppercase;
 }
 
-.filter button {
+.filter__list {
+  display: flex;
+  flex-direction: column;
+  background-color: #373737;
+  border-radius: 10.3108px;
+  overflow: hidden;
+
+  list-style: none;
+}
+
+.filter__btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,39 +35,27 @@
   text-transform: uppercase;
   color: #ebd8ff;
 
-  border: 0;
+  border-radius: 10.3108px;
+  border: 2px solid #373737;
   background-color: #373737;
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
-  /* border-radius: 10.3108px; */
   transition: 200ms linear;
 
   cursor: pointer;
 }
 
+.filter__btn:focus,
+.filter__btn:hover {
+  color: #373737;
+
+  background-color: #ebd8ff;
+}
+
+.filter__btn:disabled {
+  cursor: not-allowed;
+}
+
 .filter__currentBtn {
+  composes: filter__btn;
   border-radius: 10.3108px;
-}
-
-/* .filter button:hover {
-
-} */
-
-.filter__listWrap {
-  position: relative;
-}
-
-.filter__list {
-  /* position: absolute; */
-  display: flex;
-  flex-direction: column;
-  background-color: #373737;
-  border-radius: 10.3108px;
-  overflow: hidden;
-
-  list-style: none;
-}
-
-.filter__item {
-  height: 40px;
-  background-color: aqua;
 }

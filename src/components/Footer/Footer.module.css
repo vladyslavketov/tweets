@@ -1,0 +1,39 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 60px;
+
+  background-color: #373737;
+}
+
+.footer p {
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #ebd8ff;
+}
+
+.footer__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #ebd8ff;
+
+  border: 0;
+  border-radius: 10.3108px;
+  transition: 200ms linear;
+
+  cursor: pointer;
+}

@@ -12,7 +12,7 @@
   text-transform: uppercase;
   color: #ebd8ff;
 
-  border: 0;
+  border: 2px solid #373737;
   background-color: #373737;
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
   border-radius: 10.3108px;
@@ -23,11 +23,14 @@
 
 .loadMoreBtn:focus,
 .loadMoreBtn:hover {
-  background-color: #4b2a99;
+  color: #373737;
+
+  background-color: #ebd8ff;
   outline: none;
 }
 
 .loadMoreBtn:disabled {
   background-color: rgba(55, 55, 55, 0.5);
+  border-color: transparent;
   cursor: not-allowed;
 }

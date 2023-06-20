@@ -1,4 +1,4 @@
-import { ITEMS_PER_PAGE } from "../../constans";
+import { ITEMS_PER_PAGE } from '../../constans';
 
 const baseUrl = 'https://648ad48617f1536d65e9c549.mockapi.io/api/v1';
 

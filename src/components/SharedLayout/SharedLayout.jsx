@@ -1,18 +1,24 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import css from './SharedLayout.module.css';
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import { animateScroll } from 'react-scroll';
 
 const SharedLayout = () => {
+  useEffect(() => {
+    animateScroll.scrollToTop();
+  }, []);
+
   return (
     <>
       <Header />
-      <Suspense fallback={<div>Loading...</div>}>
-        <main className={css.main}>
+      <Suspense fallback={'Loading...'}>
+        <main>
           <Outlet />
         </main>
       </Suspense>
+      <Footer />
     </>
   );
 };
